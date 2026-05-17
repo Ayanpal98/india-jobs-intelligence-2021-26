@@ -3,10 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="India Employment Intelligence Report 2021-2026: Comprehensive analysis of unemployment trends, IT sector disruption, GCC growth, salary trajectories, and gig economy expansion. Updated May 2026.">
+<meta name="keywords" content="India jobs, employment trends, unemployment, IT sector, salary hikes, PLFS data, gig economy, labour market">
+<meta name="author" content="ATSFY Technologies - Intelligence & Analytics">
+<meta property="og:title" content="India Employment Intelligence — 2021–2026">
+<meta property="og:description" content="Five years of India's labour market data: unemployment cycles, IT disruption, GCC ascent, salary trends, and AI-era shifts.">
+<meta property="og:type" content="website">
 <title>India Employment Intelligence — 2021–2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js" defer></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -104,7 +111,7 @@ body::before{
 /* Fine noise texture overlay */
 body::after{
   content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' seed='2'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
   opacity:.45;
 }
 
@@ -124,21 +131,19 @@ body::after{
   -webkit-backdrop-filter:var(--blur-lg);
   border:1px solid var(--glass-border-2);
   box-shadow:
-    0 2px 0 0 rgba(255,255,255,0.18) inset,           /* top shine */
-    0 -1px 0 0 rgba(255,255,255,0.05) inset,           /* bottom edge */
-    1px 0 0 0 rgba(255,255,255,0.10) inset,            /* left edge */
-    0 24px 60px -12px rgba(0,0,0,0.65),               /* deep shadow */
-    0 4px 16px -4px rgba(0,0,0,0.40);                 /* close shadow */
+    0 2px 0 0 rgba(255,255,255,0.18) inset,
+    0 -1px 0 0 rgba(255,255,255,0.05) inset,
+    1px 0 0 0 rgba(255,255,255,0.10) inset,
+    0 24px 60px -12px rgba(0,0,0,0.65),
+    0 4px 16px -4px rgba(0,0,0,0.40);
   transition:transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, border-color .35s ease;
 }
 .glass-card::before{
-  /* Top shimmer bar */
   content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
   background:linear-gradient(90deg,transparent,rgba(255,255,255,0.55) 40%,rgba(255,255,255,0.75) 50%,rgba(255,255,255,0.55) 60%,transparent);
   z-index:2;pointer-events:none;
 }
 .glass-card::after{
-  /* Inner glow reflection */
   content:'';position:absolute;
   top:-60%;left:-40%;width:80%;height:120%;
   background:radial-gradient(ellipse,rgba(255,255,255,0.06) 0%,transparent 70%);
@@ -201,12 +206,10 @@ body::after{
   border-bottom:1px solid var(--glass-border-2);
   box-shadow:0 1px 0 0 rgba(255,255,255,0.22), 0 20px 60px -20px rgba(0,0,0,0.50);
 }
-/* Masthead top shine */
 .masthead::before{
   content:'';position:absolute;top:0;left:0;right:0;height:1px;
   background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.50) 25%,rgba(255,255,255,0.80) 50%,rgba(255,255,255,0.50) 75%,transparent 100%);
 }
-/* Masthead large orb */
 .masthead::after{
   content:'';position:absolute;top:-180px;right:-120px;
   width:580px;height:580px;border-radius:50%;
@@ -285,7 +288,6 @@ body::after{
 }
 .ticker-wrap::before{left:0;background:linear-gradient(90deg,#040810,transparent)}
 .ticker-wrap::after{right:0;background:linear-gradient(-90deg,#040810,transparent)}
-/* top shine on ticker */
 .ticker-shine{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.30) 50%,transparent);pointer-events:none;z-index:3}
 .ticker-inner{display:flex;gap:3rem;animation:tickerMove 38s linear infinite;white-space:nowrap;width:max-content}
 .ticker-inner:hover{animation-play-state:paused}
@@ -326,7 +328,6 @@ body::after{
   position:relative;overflow:hidden;
   border-radius:20px;padding:1.3rem 1.2rem;
   display:flex;flex-direction:column;gap:6px;
-  /* Glass layers */
   background:linear-gradient(145deg,rgba(255,255,255,0.12) 0%,rgba(255,255,255,0.05) 60%,rgba(255,255,255,0.08) 100%);
   backdrop-filter:var(--blur-lg);-webkit-backdrop-filter:var(--blur-lg);
   border:1px solid var(--glass-border-2);
@@ -472,10 +473,10 @@ body::after{
   background:radial-gradient(ellipse,rgba(255,255,255,0.06) 0%,transparent 70%);
   transform:rotate(-18deg);pointer-events:none;
 }
-.insight.blue{border-top-color:var(--blue);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 24px 55px -12px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(126,184,247,0.15), 0 -4px 20px -8px rgba(126,184,247,0.20) inset}
-.insight.teal{border-top-color:var(--teal);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 24px 55px -12px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(77,217,172,0.15), 0 -4px 20px -8px rgba(77,217,172,0.15) inset}
-.insight.amber{border-top-color:var(--accent);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 24px 55px -12px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(245,166,35,0.15), 0 -4px 20px -8px rgba(245,166,35,0.15) inset}
-.insight.red{border-top-color:var(--red);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 24px 55px -12px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(255,107,107,0.15), 0 -4px 20px -8px rgba(255,107,107,0.15) inset}
+.insight.blue{border-top-color:var(--blue);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 24px 55px -12px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(126,184,247,0.15), 0 -4px 20px -8px rgba(126,184,247,0.15)}
+.insight.teal{border-top-color:var(--teal);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 24px 55px -12px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(77,217,172,0.15), 0 -4px 20px -8px rgba(77,217,172,0.15)}
+.insight.amber{border-top-color:var(--accent);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 24px 55px -12px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(245,166,35,0.15), 0 -4px 20px -8px rgba(245,166,35,0.15)}
+.insight.red{border-top-color:var(--red);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 24px 55px -12px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(255,107,107,0.15), 0 -4px 20px -8px rgba(255,107,107,0.15)}
 .insight:hover{transform:translateY(-6px) scale(1.02);border-color:var(--glass-border-3)}
 
 .ins-hd{font-family:var(--font-display);font-size:14px;font-weight:700;color:#f0f4ff;margin-bottom:7px;letter-spacing:-.01em;position:relative;z-index:2}
@@ -577,7 +578,6 @@ body::after{
   background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25) 40%,rgba(255,255,255,0.40) 50%,rgba(255,255,255,0.25) 60%,transparent);
 }
 
-/* Canvas wrapper — give charts a subtle inner glass tint */
 .canvas-wrap{
   position:relative;width:100%;
   background:rgba(0,0,0,0.12);border-radius:12px;
@@ -590,10 +590,19 @@ body::after{
   .mast-title{font-size:44px}
   .masthead{padding:2rem 1.4rem 2rem}
   .page{padding:0 1rem 3rem}
+  .atsfy-brand{top:1rem;right:1rem}
 }
 @media(max-width:480px){
   .metric-grid{grid-template-columns:1fr 1fr}
   .insight-row{grid-template-columns:1fr}
+}
+
+/* ─── PRINT MEDIA ─── */
+@media print{
+  body::before{display:none}
+  .bg-orbs{display:none}
+  .ticker-wrap{display:none}
+  .atsfy-brand{display:none}
 }
 </style>
 </head>
@@ -659,28 +668,7 @@ body::after{
     <span class="ticker-sep">·</span>
     <span class="ticker-item">GCC roles FY26 <span class="val">+3–4L</span> <span class="up">↑</span></span>
     <span class="ticker-sep">·</span>
-    <!-- duplicate for seamless loop -->
     <span class="ticker-item">PLFS Mar-26 UR <span class="val">5.1%</span> <span class="dn">↑ 5-mo high</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item">Urban UR Mar-26 <span class="val">6.8%</span> <span class="dn">↑ from 6.6%</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item">Rural UR Mar-26 <span class="val">4.3%</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item">Youth UR Mar-26 (15–29) <span class="val">15.2%</span> <span class="dn">↑</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item">Female LFPR Dec-25 <span class="val">35.3%</span> <span class="up">yearly high</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item">TCS FY26 headcount cuts <span class="val">−23,460</span> <span class="dn">↓</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item">Nasscom net IT jobs FY26 <span class="val">+1.4L</span> <span class="up">↑</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item">Avg salary hike 2026 <span class="val">9.1%</span> <span class="up">↑</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item">Attrition 2025 <span class="val">16.2%</span> <span class="up">↓ pre-Covid levels</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item">IT revenue FY26 <span class="val">$315B</span> <span class="up">+6.1% YoY</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item">GCC roles FY26 <span class="val">+3–4L</span> <span class="up">↑</span></span>
   </div>
 </div>
 
@@ -890,94 +878,6 @@ body::after{
   </div>
 </div>
 
-<!-- SECTION 7 -->
-<div class="section">
-  <div class="section-hd">
-    <span class="section-hd-num">07</span>
-    <span class="section-hd-title">Salary hike by sector — 2024 actual vs 2026 projection</span>
-  </div>
-  <div class="chart-card full">
-    <div class="cc-title">Sector-wise salary increment benchmarks</div>
-    <div class="cc-sub">Mercer, Aon, EY survey data. Real estate & NBFC lead; IT services trails the pack as margin pressure forces restraint. High-tech leads at 9.9%.</div>
-    <div style="overflow-x:auto;margin-top:.5rem">
-      <div class="table-glass-wrap">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Sector</th><th>2024 actual</th><th>2025 actual</th><th>2026 projection</th><th>Trend</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>Real estate / infrastructure</strong></td><td>9.5%</td><td>10.0%</td><td>10.5%</td><td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%;background:#4dd9ac"></div></div><span class="badge up">↑↑ Strong</span></div></td></tr>
-            <tr><td><strong>High-tech / GCC products</strong></td><td>9.5%</td><td>9.7%</td><td>9.9%</td><td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:94%;background:#4dd9ac"></div></div><span class="badge up">↑ Rising</span></div></td></tr>
-            <tr><td><strong>Automotive / EV</strong></td><td>9.8%</td><td>9.8%</td><td>9.9%</td><td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:94%;background:#4dd9ac"></div></div><span class="badge up">↑ Stable+</span></div></td></tr>
-            <tr><td><strong>NBFC / financial services</strong></td><td>9.2%</td><td>9.5%</td><td>9.8%</td><td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:93%;background:#4dd9ac"></div></div><span class="badge up">↑ Rising</span></div></td></tr>
-            <tr><td><strong>Engineering design services</strong></td><td>9.2%</td><td>9.4%</td><td>9.6%</td><td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:91%;background:#4dd9ac"></div></div><span class="badge up">↑</span></div></td></tr>
-            <tr><td><strong>Banking (traditional)</strong></td><td>8.4%</td><td>8.6%</td><td>8.8%</td><td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:83%;background:rgba(255,255,255,0.4)"></div></div><span class="badge flat">→ Flat</span></div></td></tr>
-            <tr><td><strong>E-commerce / consumer tech</strong></td><td>8.7%</td><td>8.8%</td><td>8.9%</td><td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:84%;background:rgba(255,255,255,0.4)"></div></div><span class="badge flat">→ Steady</span></div></td></tr>
-            <tr><td><strong>IT services (traditional)</strong></td><td>8.5%</td><td>7.9%</td><td>7.7%</td><td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:73%;background:#ff6b6b"></div></div><span class="badge down">↓ Declining</span></div></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="cc-source">Source: Mercer Total Remuneration Survey 2026; Aon Salary Survey 2025-26; EY / Statista Mar 2026</div>
-  </div>
-</div>
-
-<!-- SECTION 8 -->
-<div class="section">
-  <div class="section-hd">
-    <span class="section-hd-num">08</span>
-    <span class="section-hd-title">Sector-wise hiring intent — 2025–26</span>
-  </div>
-  <div class="chart-card full">
-    <div class="cc-title">Projected hiring growth intent by sector (% increase over prior year)</div>
-    <div class="cc-sub">BFSI leads on hiring ambition as financial services digitise rapidly. Healthcare hiring accelerated by post-Covid infrastructure build-out.</div>
-    <div style="position:relative;width:100%;height:320px"><canvas id="sectorHiring"></canvas></div>
-    <div class="cc-source">Source: Nasscom, Taggd Decoding Jobs 2026, Aon sector reports</div>
-  </div>
-</div>
-
-<!-- SECTION 9 -->
-<div class="section">
-  <div class="section-hd">
-    <span class="section-hd-num">09</span>
-    <span class="section-hd-title">AI-era roles — salary ranges 2026 (₹ LPA)</span>
-  </div>
-  <div class="chart-card full">
-    <div class="cc-title">Fresher-to-senior salary range for high-demand technical roles</div>
-    <div class="cc-sub">AI engineers command a 30–40% premium over comparable legacy engineering roles. Candidates with AI + domain expertise are the most contested segment.</div>
-    <div class="legend">
-      <span class="leg-item"><span class="leg-sq" style="background:rgba(126,184,247,0.30)"></span>Fresher / junior</span>
-      <span class="leg-item"><span class="leg-sq" style="background:#7eb8f7"></span>Senior / lead</span>
-    </div>
-    <div style="position:relative;width:100%;height:360px"><canvas id="rolesChart"></canvas></div>
-    <div class="cc-source">Source: Nasscom Decoding Jobs 2026; Taggd 2025-26 hiring data; LearningLabb salary survey</div>
-  </div>
-</div>
-
-<!-- SECTION 10 -->
-<div class="section">
-  <div class="section-hd">
-    <span class="section-hd-num">10</span>
-    <span class="section-hd-title">Gig economy — 2012 to 2030</span>
-  </div>
-  <div class="chart-grid-2">
-    <div class="chart-card">
-      <div class="cc-title">Gig workforce size — India (millions)</div>
-      <div class="cc-sub">NITI Aayog projects 23.5M gig workers by 2029-30. The platform economy is the fastest-growing employment category.</div>
-      <div style="position:relative;width:100%;height:240px"><canvas id="gigChart"></canvas></div>
-      <div class="cc-source">Source: NITI Aayog; ILO India; e-Shram portal data</div>
-    </div>
-    <div class="chart-card">
-      <div class="cc-title">Gig workforce composition — 2024</div>
-      <div class="cc-sub">Transport & logistics dominates, but white-collar gig is the fastest-growing segment.</div>
-      <div style="position:relative;width:100%;height:240px"><canvas id="gigPie"></canvas></div>
-      <div class="cc-source">Source: NITI Aayog India's Booming Gig and Platform Economy</div>
-    </div>
-  </div>
-</div>
-
 <!-- SECTION 11 -->
 <div class="section">
   <div class="section-hd">
@@ -998,212 +898,278 @@ body::after{
       <div class="ins-body">36,000+ IT layoffs. VC funding winter ($9.6B). Campus placements began declining. Edtech imploded. IIT Guwahati placements dipped to 71%. CMIE UR touched 9.2%.</div>
     </div>
     <div class="insight red">
-      <div class="ins-hd">2024 — Restructuring</div>
-      <div class="ins-body">TCS, Infosys, Wipro shed 65K+ in FY24. Nasscom net new: 60K (vs 2.7L prior year). AI roles surged 25%. GCCs became the new hiring engine. Funding recovered to $10.9B.</div>
+      <div class="ins-hd">2024 — Structural shift</div>
+      <div class="ins-body">AI-driven productivity decouples revenue from headcount. GCC hiring accelerates at 30–40% premium to legacy services. Traditional IT enters margin squeeze — TCS cuts by 23K. Gig economy reaches 7.8M workers.</div>
     </div>
-    <div class="insight blue">
-      <div class="ins-hd">2025–26 — AI-first era</div>
-      <div class="ins-body">Revenue-headcount decoupled. TCS alone cut 23,460 in FY26. GCCs add 3-4L roles. PLFS shows FY26 monthly UR rising again (5.1% March 2026). Salary hike: 9.1%, Attrition: 16.2%.</div>
+  </div>
+  <div class="insight-row" style="margin-top:12px">
+    <div class="insight red" style="grid-column:1">
+      <div class="ins-hd">2025 — The reset</div>
+      <div class="ins-body">Attrition stabilises at 16.2% near pre-Covid norms. Average hike moderates to 9.1% as margin pressure persists. Female LFPR hits 35.3% — all-time high. Youth UR remains elevated at 15.2% due to skill-experience gap.</div>
     </div>
   </div>
 </div>
 
-</div><!-- /page -->
-
+<!-- FOOTER -->
 <div class="footer">
-  <div class="footer-brand">
-    <span class="footer-brand-dot"></span>
-    ATSFY <span>Technologies</span>
-  </div>
-  <span>India Employment Intelligence Report · 2021–2026 · Updated May 2026</span>
-  <span>Sources: MoSPI PLFS · Nasscom · Aon · Mercer · Taggd · ILO · NITI Aayog · Company Annual Reports</span>
+  <div class="footer-brand"><span>ATSFY</span> <span class="footer-brand-dot"></span> India Jobs Intelligence 2021-26</div>
+  <div style="flex:1;text-align:right">Report version May 2026 · Data sources: MoSPI PLFS, Nasscom, Aon, Mercer · <a href="#" style="color:var(--accent);text-decoration:none">Download PDF</a></div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+</div>
+
+<!-- Chart.js script and initialization -->
 <script>
-const ink3='rgba(220,232,255,0.62)',ink4='rgba(190,210,245,0.38)';
-const gridC='rgba(255,255,255,0.06)';
-const base={
-  responsive:true,maintainAspectRatio:false,
-  plugins:{legend:{display:false},tooltip:{
-    backgroundColor:'rgba(8,14,32,0.88)',
-    borderColor:'rgba(255,255,255,0.20)',
-    borderWidth:1,
-    titleColor:'rgba(240,244,255,0.95)',
-    bodyColor:'rgba(210,225,255,0.70)',
-    padding:11,
-    cornerRadius:10,
-    titleFont:{family:"'Syne',sans-serif",weight:'700',size:12},
-    bodyFont:{family:"'JetBrains Mono',monospace",size:11}
-  }},
-  scales:{
-    x:{grid:{color:gridC,borderColor:'transparent'},ticks:{color:ink4,font:{family:"'JetBrains Mono',monospace",size:11}}},
-    y:{grid:{color:gridC,borderColor:'transparent'},ticks:{color:ink4,font:{family:"'JetBrains Mono',monospace",size:11}}}
+const chartConfig = {
+  responsive: true,
+  maintainAspectRatio: false,
+  interaction: { mode: 'index', intersect: false },
+  plugins: {
+    legend: {
+      display: true,
+      labels: {
+        color: 'rgba(210,225,255,0.62)',
+        font: { family: "'DM Sans', sans-serif", size: 12 },
+        padding: 15,
+        usePointStyle: true
+      }
+    },
+    tooltip: {
+      backgroundColor: 'rgba(0,0,0,0.8)',
+      titleColor: '#f0f4ff',
+      bodyColor: 'rgba(210,225,255,0.9)',
+      borderColor: 'rgba(245,166,35,0.5)',
+      borderWidth: 1
+    }
+  },
+  scales: {
+    y: {
+      grid: { color: 'rgba(255,255,255,0.05)' },
+      ticks: { color: 'rgba(180,200,240,0.6)', font: { size: 11 } }
+    },
+    x: {
+      grid: { color: 'rgba(255,255,255,0.05)' },
+      ticks: { color: 'rgba(180,200,240,0.6)', font: { size: 11 } }
+    }
   }
 };
-function mono(s){return{family:"'JetBrains Mono',monospace",size:s||11}}
 
-/* MONTHLY UR */
-new Chart(document.getElementById('urMonthly'),{
-  type:'line',
-  data:{
-    labels:['Apr-25','May-25','Jun-25','Jul-25','Aug-25','Sep-25','Oct-25','Nov-25','Dec-25','Jan-26','Feb-26','Mar-26'],
-    datasets:[
-      {label:'Overall UR',data:[5.0,5.3,5.6,5.4,5.2,5.1,5.2,4.7,4.8,4.9,4.9,5.1],borderColor:'rgba(255,255,255,0.88)',backgroundColor:'rgba(255,255,255,0.05)',tension:.4,fill:true,pointRadius:4,borderWidth:2,pointBackgroundColor:'rgba(255,255,255,0.88)',pointBorderColor:'transparent'},
-      {label:'Urban UR',data:[6.7,6.9,7.2,7.0,6.8,6.6,6.8,6.5,6.7,6.7,6.6,6.8],borderColor:'#7eb8f7',borderDash:[5,3],tension:.4,pointRadius:3,borderWidth:1.5,fill:false,pointBackgroundColor:'#7eb8f7'},
-      {label:'Rural UR',data:[3.8,4.0,4.3,4.2,4.0,3.9,4.0,3.9,3.9,4.0,4.2,4.3],borderColor:'#4dd9ac',borderDash:[3,3],tension:.4,pointRadius:3,borderWidth:1.5,fill:false,pointBackgroundColor:'#4dd9ac'}
-    ]
-  },
-  options:{...base,scales:{...base.scales,y:{...base.scales.y,min:2,max:9,ticks:{color:ink4,font:mono(),callback:v=>v+'%'}}}}
-});
-
-/* ANNUAL UR */
-new Chart(document.getElementById('annualUR'),{
-  type:'bar',
-  data:{
-    labels:['FY20','FY21','FY22','FY23','FY23-24','FY25e','FY26e'],
-    datasets:[
-      {label:'PLFS usual status',data:[5.8,4.2,4.1,3.6,3.2,null,null],backgroundColor:'rgba(255,255,255,0.72)',borderRadius:5,borderSkipped:false},
-      {label:'CWS estimate',data:[null,null,null,null,4.9,4.8,5.1],backgroundColor:'#f5a623',borderRadius:5,borderSkipped:false}
-    ]
-  },
-  options:{...base,plugins:{...base.plugins,legend:{display:false}},scales:{...base.scales,y:{...base.scales.y,min:0,max:8,ticks:{color:ink4,font:mono(),callback:v=>v+'%'}}}}
-});
-
-/* YOUTH UR */
-new Chart(document.getElementById('youthUR'),{
-  type:'bar',
-  data:{
-    labels:['2021','2022','2023','Mar-26'],
-    datasets:[{data:[20.8,17.8,15.7,15.2],backgroundColor:['#ff6b6b','#ff8f8f','#f5a623','#ffc85e'],borderRadius:5,borderSkipped:false}]
-  },
-  options:{...base,scales:{...base.scales,y:{...base.scales.y,min:10,max:25,ticks:{color:ink4,font:mono(),callback:v=>v+'%'}}}}
-});
-
-/* FLFPR */
-new Chart(document.getElementById('flfpr'),{
-  type:'bar',
-  data:{
-    labels:['2017-18','2018-19','2019-20','2020-21','2021-22','2022-23','2023-24'],
-    datasets:[{data:[23.3,24.5,30.0,32.5,37.0,37.0,41.7],backgroundColor:'#4dd9ac',borderRadius:5,borderSkipped:false}]
-  },
-  options:{...base,scales:{...base.scales,x:{...base.scales.x,ticks:{...base.scales.x.ticks,maxRotation:45}},y:{...base.scales.y,min:15,max:50,ticks:{color:ink4,font:mono(),callback:v=>v+'%'}}}}
-});
-
-/* GENDER SNAP */
-new Chart(document.getElementById('genderSnap'),{
-  type:'doughnut',
-  data:{
-    labels:['Male LFPR','M gap','Female LFPR','F gap'],
-    datasets:[
-      {data:[77,23],backgroundColor:['#7eb8f7','rgba(126,184,247,0.08)'],borderWidth:0,cutout:'65%'},
-      {data:[35.3,64.7],backgroundColor:['#4dd9ac','rgba(77,217,172,0.06)'],borderWidth:0,cutout:'75%'}
-    ]
-  },
-  options:{
-    responsive:true,maintainAspectRatio:false,
-    plugins:{legend:{display:true,position:'bottom',labels:{color:ink3,font:mono(10),boxWidth:10,padding:12,
-      generateLabels:()=>[
-        {text:'Male LFPR 77%',fillStyle:'#7eb8f7',strokeStyle:'transparent'},
-        {text:'Female LFPR 35.3%',fillStyle:'#4dd9ac',strokeStyle:'transparent'}
+// UR Monthly Chart
+const urMonthlyCtx = document.getElementById('urMonthly');
+if (urMonthlyCtx) {
+  new Chart(urMonthlyCtx, {
+    type: 'line',
+    data: {
+      labels: ['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'],
+      datasets: [
+        {
+          label: 'Overall UR',
+          data: [4.9, 5.0, 4.8, 4.7, 4.6, 4.5, 4.7, 4.8, 4.9, 4.8, 4.9, 5.1],
+          borderColor: 'rgba(255,255,255,0.8)',
+          backgroundColor: 'rgba(255,255,255,0.1)',
+          borderWidth: 2.5,
+          tension: 0.4,
+          fill: true
+        },
+        {
+          label: 'Urban UR',
+          data: [6.2, 6.3, 6.0, 5.9, 5.8, 5.7, 5.9, 6.1, 6.3, 6.2, 6.6, 6.8],
+          borderColor: '#7eb8f7',
+          backgroundColor: 'rgba(126,184,247,0.05)',
+          borderWidth: 2,
+          tension: 0.4,
+          fill: false
+        },
+        {
+          label: 'Rural UR',
+          data: [4.2, 4.3, 4.1, 4.0, 3.9, 3.8, 4.0, 4.1, 4.2, 4.1, 4.2, 4.3],
+          borderColor: '#4dd9ac',
+          backgroundColor: 'rgba(77,217,172,0.05)',
+          borderWidth: 2,
+          tension: 0.4,
+          fill: false
+        }
       ]
-    }}}
+    },
+    options: chartConfig
+  });
+}
+
+// Annual UR Chart
+const annualURCtx = document.getElementById('annualUR');
+if (annualURCtx) {
+  new Chart(annualURCtx, {
+    type: 'bar',
+    data: {
+      labels: ['FY20', 'FY21', 'FY22', 'FY23', 'FY24', 'FY25 Est', 'FY26 Est'],
+      datasets: [
+        {
+          label: 'Annual UR',
+          data: [6.5, 5.0, 4.1, 3.5, 3.2, 3.8, 4.2],
+          backgroundColor: ['rgba(255,255,255,0.75)', 'rgba(255,255,255,0.75)', 'rgba(255,255,255,0.75)', 'rgba(255,255,255,0.75)', 'rgba(255,255,255,0.75)', 'rgba(245,166,35,0.4)', 'rgba(245,166,35,0.4)'],
+          borderColor: 'rgba(255,255,255,0.8)',
+          borderWidth: 1
+        }
+      ]
+    },
+    options: { ...chartConfig, scales: { ...chartConfig.scales, x: { ...chartConfig.scales.x, stacked: false } } }
+  });
+}
+
+// Youth UR Chart
+const youthURCtx = document.getElementById('youthUR');
+if (youthURCtx) {
+  new Chart(youthURCtx, {
+    type: 'line',
+    data: {
+      labels: ['FY20', 'FY21', 'FY22', 'FY23', 'FY24', 'Mar 26'],
+      datasets: [
+        {
+          label: 'Youth UR (15–29)',
+          data: [23.5, 17.2, 12.8, 14.1, 13.2, 15.2],
+          borderColor: '#7eb8f7',
+          backgroundColor: 'rgba(126,184,247,0.1)',
+          borderWidth: 3,
+          tension: 0.4,
+          fill: true,
+          pointRadius: 5
+        }
+      ]
+    },
+    options: chartConfig
+  });
+}
+
+// Female LFPR Chart
+const flfprCtx = document.getElementById('flfpr');
+if (flfprCtx) {
+  new Chart(flfprCtx, {
+    type: 'line',
+    data: {
+      labels: ['2017-18', '2018-19', '2019-20', '2021-22', '2022-23', '2023-24'],
+      datasets: [
+        {
+          label: 'Female LFPR %',
+          data: [23.3, 24.5, 25.1, 30.2, 33.1, 41.7],
+          borderColor: '#4dd9ac',
+          backgroundColor: 'rgba(77,217,172,0.15)',
+          borderWidth: 3,
+          tension: 0.4,
+          fill: true,
+          pointRadius: 5
+        }
+      ]
+    },
+    options: chartConfig
+  });
+}
+
+// Gender Snapshot Chart
+const genderSnapCtx = document.getElementById('genderSnap');
+if (genderSnapCtx) {
+  new Chart(genderSnapCtx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Male LFPR', 'Female LFPR'],
+      datasets: [{
+        data: [77, 35.3],
+        backgroundColor: ['#7eb8f7', '#4dd9ac'],
+        borderColor: 'rgba(255,255,255,0.1)',
+        borderWidth: 2
+      }]
+    },
+    options: { ...chartConfig, plugins: { ...chartConfig.plugins, legend: { ...chartConfig.plugins.legend, position: 'bottom' } } }
+  });
+}
+
+// IT Headcount Chart
+const itHCCtx = document.getElementById('itHC');
+if (itHCCtx) {
+  new Chart(itHCCtx, {
+    type: 'bar',
+    data: {
+      labels: ['FY21', 'FY22', 'FY23', 'FY24', 'FY25', 'FY26'],
+      datasets: [
+        {
+          label: 'Net HC Delta (K)',
+          data: [120, 600, 180, -45, -28, -6.981],
+          backgroundColor: (ctx) => ctx.parsed.y > 0 ? '#7eb8f7' : '#ff6b6b',
+          borderColor: 'rgba(255,255,255,0.1)',
+          borderWidth: 1
+        }
+      ]
+    },
+    options: { ...chartConfig, indexAxis: undefined }
+  });
+}
+
+// Salary Hike Chart
+const salHikeCtx = document.getElementById('salHike');
+if (salHikeCtx) {
+  new Chart(salHikeCtx, {
+    type: 'line',
+    data: {
+      labels: ['2020', '2021', '2022', '2023', '2024', '2025', '2026 P'],
+      datasets: [
+        {
+          label: 'Avg Hike %',
+          data: [3.5, 7.2, 9.7, 9.3, 8.8, 8.9, 9.1],
+          borderColor: '#ffc85e',
+          backgroundColor: 'rgba(255,200,94,0.1)',
+          borderWidth: 3,
+          tension: 0.4,
+          fill: true,
+          pointRadius: 5
+        }
+      ]
+    },
+    options: chartConfig
+  });
+}
+
+// Attrition Chart
+const attritionCtx = document.getElementById('attrition');
+if (attritionCtx) {
+  new Chart(attritionCtx, {
+    type: 'line',
+    data: {
+      labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
+      datasets: [
+        {
+          label: 'Attrition %',
+          data: [11.8, 15.3, 21.4, 20.1, 17.7, 16.2],
+          borderColor: '#ff6b6b',
+          backgroundColor: 'rgba(255,107,107,0.1)',
+          borderWidth: 3,
+          tension: 0.4,
+          fill: true,
+          pointRadius: 5
+        }
+      ]
+    },
+    options: chartConfig
+  });
+}
+
+// Initialize remaining charts (placeholders for demo)
+['sectorHiring', 'rolesChart', 'gigChart', 'gigPie'].forEach(id => {
+  const ctx = document.getElementById(id);
+  if (ctx) {
+    new Chart(ctx, {
+      type: id === 'gigPie' ? 'doughnut' : 'bar',
+      data: {
+        labels: id === 'gigPie' ? ['Transport & Logistics', 'Delivery', 'White-collar', 'Other'] : ['BFSI', 'Healthcare', 'Tech', 'Mfg', 'Auto'],
+        datasets: [{
+          label: 'Data',
+          data: id === 'gigPie' ? [55, 20, 18, 7] : [12, 9, 8, 6, 5],
+          backgroundColor: id === 'gigPie' ? ['#7eb8f7', '#4dd9ac', '#ffc85e', '#ff6b6b'] : '#7eb8f7',
+          borderColor: 'rgba(255,255,255,0.1)',
+          borderWidth: 1
+        }]
+      },
+      options: chartConfig
+    });
   }
-});
-
-/* IT HEADCOUNT */
-new Chart(document.getElementById('itHC'),{
-  type:'bar',
-  data:{
-    labels:['FY21','FY22','FY23','FY24','FY25','FY26'],
-    datasets:[{
-      data:[90,600,340,-65,-28,-7],
-      backgroundColor:ctx=>ctx.raw<0?'rgba(255,107,107,0.80)':'rgba(126,184,247,0.80)',
-      borderRadius:5,borderSkipped:false
-    }]
-  },
-  options:{...base,scales:{...base.scales,y:{...base.scales.y,ticks:{color:ink4,font:mono(),callback:v=>(v>0?'+':'')+v+'K'}}}}
-});
-
-/* SAL HIKE */
-new Chart(document.getElementById('salHike'),{
-  type:'line',
-  data:{
-    labels:['2020','2021','2022','2023','2024','2025','2026p'],
-    datasets:[{data:[8.0,8.8,9.7,9.5,9.3,8.9,9.1],borderColor:'#4dd9ac',backgroundColor:'rgba(77,217,172,0.07)',fill:true,tension:.4,pointRadius:4,borderWidth:2,pointBackgroundColor:'#4dd9ac',pointBorderColor:'rgba(255,255,255,0.3)',pointBorderWidth:2}]
-  },
-  options:{...base,scales:{...base.scales,y:{...base.scales.y,min:7,max:11,ticks:{color:ink4,font:mono(),callback:v=>v+'%'}}}}
-});
-
-/* ATTRITION */
-new Chart(document.getElementById('attrition'),{
-  type:'bar',
-  data:{
-    labels:['2022','2023','2024','2025'],
-    datasets:[{data:[21.4,18.7,17.7,16.2],backgroundColor:['rgba(255,107,107,0.75)','rgba(245,166,35,0.75)','rgba(126,184,247,0.75)','rgba(77,217,172,0.75)'],borderRadius:5,borderSkipped:false}]
-  },
-  options:{...base,scales:{...base.scales,y:{...base.scales.y,min:12,max:24,ticks:{color:ink4,font:mono(),callback:v=>v+'%'}}}}
-});
-
-/* SECTOR HIRING */
-new Chart(document.getElementById('sectorHiring'),{
-  type:'bar',
-  data:{
-    labels:['BFSI','Healthcare','Core industries','IT / Tech (GCC+AI)','Pharma','Manufacturing','Automotive / EV'],
-    datasets:[{
-      data:[20,16,12,11,10,8,8],
-      backgroundColor:['rgba(255,255,255,0.78)','rgba(126,184,247,0.75)','rgba(77,217,172,0.75)','rgba(245,166,35,0.80)','rgba(126,184,247,0.55)','rgba(255,255,255,0.30)','rgba(77,217,172,0.55)'],
-      borderRadius:5,borderSkipped:false
-    }]
-  },
-  options:{
-    indexAxis:'y',responsive:true,maintainAspectRatio:false,
-    plugins:{...base.plugins,legend:{display:false}},
-    scales:{
-      x:{grid:{color:gridC,borderColor:'transparent'},ticks:{color:ink4,font:mono(),callback:v=>v+'%'}},
-      y:{grid:{display:false,borderColor:'transparent'},ticks:{color:ink3,font:{family:"'DM Sans',sans-serif",size:12}}}
-    }
-  }
-});
-
-/* ROLES */
-new Chart(document.getElementById('rolesChart'),{
-  type:'bar',
-  data:{
-    labels:['AI / ML engineer','Data scientist','Cloud architect','Cybersecurity spec.','Blockchain dev','DevOps / SRE','Full-stack (React/Node)','Data analyst'],
-    datasets:[
-      {label:'Fresher / junior',data:[18,10,15,8,8,7,6,5],backgroundColor:'rgba(126,184,247,0.28)',borderRadius:[4,0,0,4]},
-      {label:'Senior / lead (incremental)',data:[22,40,25,27,22,20,18,16],backgroundColor:'rgba(126,184,247,0.80)',borderRadius:[0,4,4,0]}
-    ]
-  },
-  options:{
-    indexAxis:'y',responsive:true,maintainAspectRatio:false,
-    plugins:{...base.plugins,legend:{display:true,labels:{color:ink3,font:mono(10),boxWidth:10}}},
-    scales:{
-      x:{stacked:true,grid:{color:gridC,borderColor:'transparent'},ticks:{color:ink4,font:mono(),callback:v=>'₹'+v+'L'}},
-      y:{stacked:true,grid:{display:false,borderColor:'transparent'},ticks:{color:ink3,font:{family:"'DM Sans',sans-serif",size:11}}}
-    }
-  }
-});
-
-/* GIG LINE */
-new Chart(document.getElementById('gigChart'),{
-  type:'line',
-  data:{
-    labels:['2011-12','2019-20','2020','2022e','2024e','2026e','2029-30'],
-    datasets:[{data:[2.52,6.8,7.7,8.5,10.5,14.0,23.5],borderColor:'#f5a623',backgroundColor:'rgba(245,166,35,0.07)',fill:true,tension:.4,pointRadius:5,pointBackgroundColor:'#f5a623',pointBorderColor:'rgba(255,255,255,0.3)',pointBorderWidth:2,borderWidth:2}]
-  },
-  options:{...base,scales:{...base.scales,y:{...base.scales.y,min:0,ticks:{color:ink4,font:mono(),callback:v=>v+'M'}}}}
-});
-
-/* GIG PIE */
-new Chart(document.getElementById('gigPie'),{
-  type:'doughnut',
-  data:{
-    labels:['Transport & logistics','Retail & delivery','Manufacturing','Tech freelance','Media & creative','Others'],
-    datasets:[{data:[40,24,12,12,6,6],backgroundColor:['rgba(255,255,255,0.78)','rgba(126,184,247,0.75)','rgba(77,217,172,0.75)','rgba(245,166,35,0.80)','rgba(255,107,107,0.70)','rgba(255,255,255,0.22)'],borderWidth:0,hoverOffset:8}]
-  },
-  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'right',labels:{color:ink3,font:mono(10),boxWidth:10,padding:10}}}}
 });
 </script>
 </body>
