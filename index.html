@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="India Employment Intelligence Report 2021-2026: Comprehensive analysis of unemployment trends, IT sector disruption, GCC growth, salary trajectories, and gig economy expansion. Updated May 2026.">
+<meta name="description" content="India Employment Intelligence Report 2021-2026: Comprehensive analysis of unemployment trends, IT sector disruption, GCC growth, salary trajectories, and gig economy.">
 <meta name="keywords" content="India jobs, employment trends, unemployment, IT sector, salary hikes, PLFS data, gig economy, labour market">
 <meta name="author" content="ATSFY Technologies - Intelligence & Analytics">
 <meta property="og:title" content="India Employment Intelligence — 2021–2026">
@@ -12,7 +12,7 @@
 <title>India Employment Intelligence — 2021–2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js" defer></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -111,7 +111,7 @@ body::before{
 /* Fine noise texture overlay */
 body::after{
   content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' seed='2'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' result='noise'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' fill='%23000' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
   opacity:.45;
 }
 
@@ -473,10 +473,10 @@ body::after{
   background:radial-gradient(ellipse,rgba(255,255,255,0.06) 0%,transparent 70%);
   transform:rotate(-18deg);pointer-events:none;
 }
-.insight.blue{border-top-color:var(--blue);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 24px 55px -12px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(126,184,247,0.15), 0 -4px 20px -8px rgba(126,184,247,0.15)}
-.insight.teal{border-top-color:var(--teal);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 24px 55px -12px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(77,217,172,0.15), 0 -4px 20px -8px rgba(77,217,172,0.15)}
-.insight.amber{border-top-color:var(--accent);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 24px 55px -12px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(245,166,35,0.15), 0 -4px 20px -8px rgba(245,166,35,0.15)}
-.insight.red{border-top-color:var(--red);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 24px 55px -12px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(255,107,107,0.15), 0 -4px 20px -8px rgba(255,107,107,0.15)}
+.insight.blue{border-top-color:var(--blue);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 24px 55px -12px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(126,184,247,0.15), 0 -4px 20px -8px rgba(126,184,247,0.20)}
+.insight.teal{border-top-color:var(--teal);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 24px 55px -12px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(77,217,172,0.15), 0 -4px 20px -8px rgba(77,217,172,0.20)}
+.insight.amber{border-top-color:var(--accent);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 24px 55px -12px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(245,166,35,0.15), 0 -4px 20px -8px rgba(245,166,35,0.20)}
+.insight.red{border-top-color:var(--red);box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 24px 55px -12px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(255,107,107,0.15), 0 -4px 20px -8px rgba(255,107,107,0.20)}
 .insight:hover{transform:translateY(-6px) scale(1.02);border-color:var(--glass-border-3)}
 
 .ins-hd{font-family:var(--font-display);font-size:14px;font-weight:700;color:#f0f4ff;margin-bottom:7px;letter-spacing:-.01em;position:relative;z-index:2}
@@ -579,9 +579,19 @@ body::after{
 }
 
 .canvas-wrap{
-  position:relative;width:100%;
-  background:rgba(0,0,0,0.12);border-radius:12px;
-  padding:4px;backdrop-filter:blur(4px);
+  position:relative;
+  width:100%;
+  height:280px;
+  background:rgba(0,0,0,0.12);
+  border-radius:12px;
+  padding:4px;
+  backdrop-filter:blur(4px);
+}
+
+.canvas-wrap canvas{
+  display:block;
+  width:100% !important;
+  height:100% !important;
 }
 
 /* ─── RESPONSIVE ─── */
@@ -758,7 +768,7 @@ body::after{
       <span class="leg-item"><span class="leg-ln" style="background:#7eb8f7"></span>Urban UR</span>
       <span class="leg-item"><span class="leg-ln" style="background:#4dd9ac"></span>Rural UR</span>
     </div>
-    <div style="position:relative;width:100%;height:280px">
+    <div class="canvas-wrap">
       <canvas id="urMonthly"></canvas>
     </div>
     <div class="cc-source">Source: MoSPI PLFS Monthly Bulletins, Apr 2025 – Mar 2026</div>
@@ -779,13 +789,13 @@ body::after{
         <span class="leg-item"><span class="leg-sq" style="background:rgba(255,255,255,0.75)"></span>PLFS annual (usual status)</span>
         <span class="leg-item"><span class="leg-sq" style="background:var(--accent)"></span>PLFS CWS estimate</span>
       </div>
-      <div style="position:relative;width:100%;height:240px"><canvas id="annualUR"></canvas></div>
+      <div class="canvas-wrap" style="height:240px"><canvas id="annualUR"></canvas></div>
       <div class="cc-source">Source: MoSPI PLFS Annual Reports; CWS extrapolation for FY26</div>
     </div>
     <div class="chart-card">
       <div class="cc-title">Youth unemployment rate (15–29 yrs)</div>
       <div class="cc-sub">ILO/PLFS data. Structural skill-mismatch keeps educated youth UR elevated.</div>
-      <div style="position:relative;width:100%;height:240px"><canvas id="youthUR"></canvas></div>
+      <div class="canvas-wrap" style="height:240px"><canvas id="youthUR"></canvas></div>
       <div class="cc-source">Source: ILO, World Bank, PLFS Mar-2026 bulletin</div>
     </div>
   </div>
@@ -802,13 +812,13 @@ body::after{
       <div class="cc-title">Female labour force participation rate (%, 15+ years)</div>
       <div class="cc-sub">One of India's most significant labour market shifts — FLFPR nearly doubled in 6 years.</div>
       <div class="legend"><span class="leg-item"><span class="leg-sq" style="background:var(--teal)"></span>Annual PLFS (usual status)</span></div>
-      <div style="position:relative;width:100%;height:240px"><canvas id="flfpr"></canvas></div>
+      <div class="canvas-wrap" style="height:240px"><canvas id="flfpr"></canvas></div>
       <div class="cc-source">Source: PLFS Annual Reports 2017-18 to 2023-24</div>
     </div>
     <div class="chart-card">
       <div class="cc-title">Gender gap — Dec 2025 snapshot</div>
       <div class="cc-sub">Male LFPR near 77% vs female 35.3%. Persistent structural gap.</div>
-      <div style="position:relative;width:100%;height:240px"><canvas id="genderSnap"></canvas></div>
+      <div class="canvas-wrap" style="height:240px"><canvas id="genderSnap"></canvas></div>
       <div class="cc-source">Source: PLFS Dec-2025 Monthly Bulletin</div>
     </div>
   </div>
@@ -827,7 +837,9 @@ body::after{
       <span class="leg-item"><span class="leg-sq" style="background:#7eb8f7"></span>Positive (hiring boom)</span>
       <span class="leg-item"><span class="leg-sq" style="background:var(--red)"></span>Negative (net cuts)</span>
     </div>
-    <div style="position:relative;width:100%;height:280px"><canvas id="itHC"></canvas></div>
+    <div class="canvas-wrap">
+      <canvas id="itHC"></canvas>
+    </div>
     <div class="cc-source">Source: TCS, Infosys, Wipro, HCLTech, Tech Mahindra annual reports; Nasscom FY26</div>
   </div>
   <div style="margin-top:12px">
@@ -866,13 +878,13 @@ body::after{
     <div class="chart-card">
       <div class="cc-title">Average salary increment — India Inc (%)</div>
       <div class="cc-sub">India leads APAC in salary growth. 2022 peak driven by Great Resignation; now stabilising in 9% band.</div>
-      <div style="position:relative;width:100%;height:240px"><canvas id="salHike"></canvas></div>
+      <div class="canvas-wrap" style="height:240px"><canvas id="salHike"></canvas></div>
       <div class="cc-source">Source: Aon Annual Salary Survey 32nd edition (2025-26); Mercer TRS 2026</div>
     </div>
     <div class="chart-card">
       <div class="cc-title">Corporate attrition rate — India (%)</div>
       <div class="cc-sub">Three-year decline. 2022 Great Resignation peak at 21.4% is now down to 16.2% — near pre-Covid norms.</div>
-      <div style="position:relative;width:100%;height:240px"><canvas id="attrition"></canvas></div>
+      <div class="canvas-wrap" style="height:240px"><canvas id="attrition"></canvas></div>
       <div class="cc-source">Source: Aon Turnover Survey 2025-26</div>
     </div>
   </div>
@@ -887,7 +899,7 @@ body::after{
   <div class="insight-row">
     <div class="insight blue">
       <div class="ins-hd">2021 — Bounce-back</div>
-      <div class="ins-body">UR fell from 23.5% (April 2020 peak) to 6.38% by year-end. Startups, edtech, logistics drove hiring. Gig platforms absorbed surplus labour. Remote work unlocked Tier-2 talent.</div>
+      <div class="ins-body">UR fell from 23.5% (April 2020 peak) to 6.38% by year-end. Startups, edtech, logistics drove hiring. Gig platforms absorbed surplus labour. Remote work unlocked Tier-2/3 talent pools.</div>
     </div>
     <div class="insight teal">
       <div class="ins-hd">2022 — The boom</div>
@@ -899,13 +911,13 @@ body::after{
     </div>
     <div class="insight red">
       <div class="ins-hd">2024 — Structural shift</div>
-      <div class="ins-body">AI-driven productivity decouples revenue from headcount. GCC hiring accelerates at 30–40% premium to legacy services. Traditional IT enters margin squeeze — TCS cuts by 23K. Gig economy reaches 7.8M workers.</div>
+      <div class="ins-body">AI-driven productivity decouples revenue from headcount. GCC hiring accelerates at 30–40% premium to legacy services. Traditional IT enters margin squeeze — TCS cuts begin.</div>
     </div>
   </div>
   <div class="insight-row" style="margin-top:12px">
     <div class="insight red" style="grid-column:1">
       <div class="ins-hd">2025 — The reset</div>
-      <div class="ins-body">Attrition stabilises at 16.2% near pre-Covid norms. Average hike moderates to 9.1% as margin pressure persists. Female LFPR hits 35.3% — all-time high. Youth UR remains elevated at 15.2% due to skill-experience gap.</div>
+      <div class="ins-body">Attrition stabilises at 16.2% near pre-Covid norms. Average hike moderates to 9.1% as margin pressure persists. Female LFPR hits 35.3% — all-time high. Youth UR remains sticky at 15.2%.</div>
     </div>
   </div>
 </div>
@@ -1001,18 +1013,25 @@ if (annualURCtx) {
   new Chart(annualURCtx, {
     type: 'bar',
     data: {
-      labels: ['FY20', 'FY21', 'FY22', 'FY23', 'FY24', 'FY25 Est', 'FY26 Est'],
+      labels: ['2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'],
       datasets: [
         {
-          label: 'Annual UR',
-          data: [6.5, 5.0, 4.1, 3.5, 3.2, 3.8, 4.2],
-          backgroundColor: ['rgba(255,255,255,0.75)', 'rgba(255,255,255,0.75)', 'rgba(255,255,255,0.75)', 'rgba(255,255,255,0.75)', 'rgba(255,255,255,0.75)', 'rgba(245,166,35,0.4)', 'rgba(245,166,35,0.4)'],
-          borderColor: 'rgba(255,255,255,0.8)',
+          label: 'PLFS annual (usual status)',
+          data: [5.8, 6.7, 4.2, 3.7, 3.2, 3.2, null, null],
+          backgroundColor: 'rgba(255,255,255,0.15)',
+          borderColor: 'rgba(255,255,255,0.5)',
           borderWidth: 1
+        },
+        {
+          label: 'PLFS CWS estimate',
+          data: [null, null, null, null, null, null, 3.8, 4.1],
+          backgroundColor: 'rgba(245,166,35,0.3)',
+          borderColor: 'var(--accent)',
+          borderWidth: 1.5
         }
       ]
     },
-    options: { ...chartConfig, scales: { ...chartConfig.scales, x: { ...chartConfig.scales.x, stacked: false } } }
+    options: chartConfig
   });
 }
 
@@ -1022,17 +1041,16 @@ if (youthURCtx) {
   new Chart(youthURCtx, {
     type: 'line',
     data: {
-      labels: ['FY20', 'FY21', 'FY22', 'FY23', 'FY24', 'Mar 26'],
+      labels: ['2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'],
       datasets: [
         {
           label: 'Youth UR (15–29)',
-          data: [23.5, 17.2, 12.8, 14.1, 13.2, 15.2],
-          borderColor: '#7eb8f7',
-          backgroundColor: 'rgba(126,184,247,0.1)',
-          borderWidth: 3,
-          tension: 0.4,
+          data: [13.2, 18.9, 12.5, 11.8, 12.1, 13.5, 14.8, 15.2],
+          borderColor: 'var(--red)',
+          backgroundColor: 'rgba(255,107,107,0.1)',
+          borderWidth: 2.5,
           fill: true,
-          pointRadius: 5
+          tension: 0.4
         }
       ]
     },
@@ -1046,17 +1064,16 @@ if (flfprCtx) {
   new Chart(flfprCtx, {
     type: 'line',
     data: {
-      labels: ['2017-18', '2018-19', '2019-20', '2021-22', '2022-23', '2023-24'],
+      labels: ['2017-18', '2018-19', '2019-20', '2020-21', '2021-22', '2022-23', '2023-24'],
       datasets: [
         {
-          label: 'Female LFPR %',
-          data: [23.3, 24.5, 25.1, 30.2, 33.1, 41.7],
-          borderColor: '#4dd9ac',
+          label: 'Female LFPR (%)',
+          data: [23.3, 25.1, 26.8, 27.5, 31.9, 38.4, 41.7],
+          borderColor: 'var(--teal)',
           backgroundColor: 'rgba(77,217,172,0.15)',
-          borderWidth: 3,
-          tension: 0.4,
+          borderWidth: 2.5,
           fill: true,
-          pointRadius: 5
+          tension: 0.4
         }
       ]
     },
@@ -1068,17 +1085,20 @@ if (flfprCtx) {
 const genderSnapCtx = document.getElementById('genderSnap');
 if (genderSnapCtx) {
   new Chart(genderSnapCtx, {
-    type: 'doughnut',
+    type: 'bar',
     data: {
-      labels: ['Male LFPR', 'Female LFPR'],
-      datasets: [{
-        data: [77, 35.3],
-        backgroundColor: ['#7eb8f7', '#4dd9ac'],
-        borderColor: 'rgba(255,255,255,0.1)',
-        borderWidth: 2
-      }]
+      labels: ['Male', 'Female'],
+      datasets: [
+        {
+          label: 'LFPR (%)',
+          data: [77.1, 35.3],
+          backgroundColor: ['rgba(126,184,247,0.3)', 'rgba(77,217,172,0.3)'],
+          borderColor: ['#7eb8f7', '#4dd9ac'],
+          borderWidth: 1.5
+        }
+      ]
     },
-    options: { ...chartConfig, plugins: { ...chartConfig.plugins, legend: { ...chartConfig.plugins.legend, position: 'bottom' } } }
+    options: chartConfig
   });
 }
 
@@ -1091,15 +1111,19 @@ if (itHCCtx) {
       labels: ['FY21', 'FY22', 'FY23', 'FY24', 'FY25', 'FY26'],
       datasets: [
         {
-          label: 'Net HC Delta (K)',
-          data: [120, 600, 180, -45, -28, -6.981],
-          backgroundColor: (ctx) => ctx.parsed.y > 0 ? '#7eb8f7' : '#ff6b6b',
-          borderColor: 'rgba(255,255,255,0.1)',
-          borderWidth: 1
+          label: 'Net HC Delta (thousands)',
+          data: [120, 360, 85, 42, 18, -6.981],
+          backgroundColor: (context) => {
+            return context.parsed.y >= 0 ? 'rgba(126,184,247,0.4)' : 'rgba(255,107,107,0.4)';
+          },
+          borderColor: (context) => {
+            return context.parsed.y >= 0 ? '#7eb8f7' : '#ff6b6b';
+          },
+          borderWidth: 1.5
         }
       ]
     },
-    options: { ...chartConfig, indexAxis: undefined }
+    options: chartConfig
   });
 }
 
@@ -1109,17 +1133,16 @@ if (salHikeCtx) {
   new Chart(salHikeCtx, {
     type: 'line',
     data: {
-      labels: ['2020', '2021', '2022', '2023', '2024', '2025', '2026 P'],
+      labels: ['2020', '2021', '2022', '2023', '2024', '2025', '2026'],
       datasets: [
         {
-          label: 'Avg Hike %',
-          data: [3.5, 7.2, 9.7, 9.3, 8.8, 8.9, 9.1],
-          borderColor: '#ffc85e',
-          backgroundColor: 'rgba(255,200,94,0.1)',
-          borderWidth: 3,
-          tension: 0.4,
+          label: 'Avg Salary Increment (%)',
+          data: [6.2, 7.1, 9.7, 9.2, 9.0, 8.9, 9.1],
+          borderColor: 'var(--accent2)',
+          backgroundColor: 'rgba(255,200,94,0.15)',
+          borderWidth: 2.5,
           fill: true,
-          pointRadius: 5
+          tension: 0.4
         }
       ]
     },
@@ -1133,44 +1156,23 @@ if (attritionCtx) {
   new Chart(attritionCtx, {
     type: 'line',
     data: {
-      labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
+      labels: ['2020', '2021', '2022', '2023', '2024', '2025', '2026'],
       datasets: [
         {
-          label: 'Attrition %',
-          data: [11.8, 15.3, 21.4, 20.1, 17.7, 16.2],
-          borderColor: '#ff6b6b',
-          backgroundColor: 'rgba(255,107,107,0.1)',
-          borderWidth: 3,
-          tension: 0.4,
+          label: 'Attrition Rate (%)',
+          data: [10.2, 14.8, 21.4, 19.8, 17.9, 16.2, 16.2],
+          borderColor: 'var(--red)',
+          backgroundColor: 'rgba(255,107,107,0.12)',
+          borderWidth: 2.5,
           fill: true,
-          pointRadius: 5
+          tension: 0.4
         }
       ]
     },
     options: chartConfig
   });
 }
-
-// Initialize remaining charts (placeholders for demo)
-['sectorHiring', 'rolesChart', 'gigChart', 'gigPie'].forEach(id => {
-  const ctx = document.getElementById(id);
-  if (ctx) {
-    new Chart(ctx, {
-      type: id === 'gigPie' ? 'doughnut' : 'bar',
-      data: {
-        labels: id === 'gigPie' ? ['Transport & Logistics', 'Delivery', 'White-collar', 'Other'] : ['BFSI', 'Healthcare', 'Tech', 'Mfg', 'Auto'],
-        datasets: [{
-          label: 'Data',
-          data: id === 'gigPie' ? [55, 20, 18, 7] : [12, 9, 8, 6, 5],
-          backgroundColor: id === 'gigPie' ? ['#7eb8f7', '#4dd9ac', '#ffc85e', '#ff6b6b'] : '#7eb8f7',
-          borderColor: 'rgba(255,255,255,0.1)',
-          borderWidth: 1
-        }]
-      },
-      options: chartConfig
-    });
-  }
-});
 </script>
+
 </body>
 </html>
